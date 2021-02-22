@@ -14,7 +14,8 @@
 <div class="container mt-5 mb-5">
     <div class="row justify-content-center" >
         <div class="col-8 col-sm-8 col-md-8 pt-3 form-container">
-            <form class="justify-content-center">
+            <form class="justify-content-center" method="POST">
+                {% csrf_token %}
 
 
                 <div class="logo-img col-6" style="margin: auto; text-align: center;" >
@@ -26,44 +27,44 @@
 
                     <div class="form-group mt-2 col-6">
                 <label for="exampleInputEmail1">First Name</label>
-                <input type="email" class="form-control form-focus " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="text" class="form-control form-focus " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First Name" name="Fname">
                 <small id="emailHelp" class="form-text text-danger" hidden>*We'll never share your email with anyone else.</small>
               </div>
               <div class="form-group mt-2 col-6">
                 <label for="exampleInputPassword1">Last Name</label>
-                <input type="password" class="form-control form-focus " id="exampleInputPassword1" placeholder="Password">
+                <input type="text" class="form-control form-focus " id="exampleInputPassword1" placeholder="Last Name" name="Lname">
               </div>
 
               <div class="form-group mt-2 col-12">
                 <label for="exampleInputPassword1">Email Address</label>
-                <input type="password" class="form-control form-focus " id="exampleInputPassword1" placeholder="Password">
+                <input type="email" class="form-control form-focus " id="exampleInputPassword1" placeholder="Email" name="email">
               </div>
 
               <div class="form-group mt-2 col-6">
                 <label for="exampleInputEmail1">Company Name</label>
-                <input type="email" class="form-control form-focus " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="text" class="form-control form-focus " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Company Name" name="Cname">
                 <small id="emailHelp" class="form-text text-danger" hidden>*We'll never share your email with anyone else.</small>
               </div>
               <div class="form-group mt-2 col-6">
                 <label for="exampleInputPassword1">Mobile Number</label>
-                <input type="password" class="form-control form-focus " id="exampleInputPassword1" placeholder="Password">
+                <input type="text" class="form-control form-focus " id="exampleInputPassword1" placeholder="Number" name="phone">
               </div>
 
                 <div class="form-group mt-2 col-6">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control form-focus " id="exampleInputPassword1" placeholder="Password">
+                <input type="password" class="form-control form-focus " id="pass" placeholder="Password" name="password">
               </div>
 
                 <div class="form-group mt-2 col-6">
                 <label for="exampleInputPassword1">Confirm Password</label>
-                <input type="password" class="form-control form-focus " id="exampleInputPassword1" placeholder="Password">
+                <input type="password" class="form-control form-focus " id="c_pass" placeholder="Password" name="Cpassword">
               </div>
                 </div>
               <button type="submit" class="btn btn-primary col-12 mt-3 ">SIGN UP</button>
             </form>
                     <p class="mt-2">
                         Already have an account? Then please
-                        <a href="E:/javascripts/login.html">Sign in</a>
+                        <a href="{% url 'login' %}">Sign in</a>
                 .
                     </p>
 
@@ -77,5 +78,6 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="{% static 'js/global.js'%}"></script>
 </body>
 </html>

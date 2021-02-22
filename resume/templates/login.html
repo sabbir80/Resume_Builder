@@ -14,20 +14,28 @@
 <div class="container mt-5">
     <div class="row justify-content-center" >
         <div class="col-8 col-sm-8 col-md-4 pt-3 form-container">
-            <form class="justify-content-center">
-               
+            <form class="justify-content-center" method="post">
+                {% csrf_token %}
+
+
                 <div class="logo-img col-6" style="margin: auto; text-align: center;" >
                     <img src="{% static 'image/logo.png'%}" class="img-fluid" alt="">
                     
                 </div>
+                {%if mg%}
+                <div class="alert alert-danger" role="alert">
+                    {{mg}}
+                </div>
+                {%endif%}
+
               <div class="form-group mt-3">
                 <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control form-focus " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control form-focus " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
                 <small id="emailHelp" class="form-text text-danger" hidden>*We'll never share your email with anyone else.</small>
               </div>
               <div class="form-group mt-3">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control form-focus " id="exampleInputPassword1" placeholder="Password">
+                <input type="password" class="form-control form-focus " id="exampleInputPassword1" placeholder="Password" name="password">
               </div>
 
               <button type="submit" class="btn btn-primary col-12 mt-2 ">LOGIN</button>
