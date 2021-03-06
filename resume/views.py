@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password,check_password
+from resume.middlewares.auth import auth_middleware
 
 # Create your views here.
 from resume.models import User
 
-
+@auth_middleware
 def home(request):
     return render(request,'home.html')
 def registration(request):
@@ -37,6 +38,7 @@ def registration(request):
 
     return render(request,'signup.html')
 
+
 def login(request):
     if request.method=="POST":
         postdata=request.POST
@@ -48,9 +50,15 @@ def login(request):
         if user:
             flag=check_password(password,user.password)
             if flag:
+                request.session['user_id']=user.id
+                print(request.session.get('user_id'))
                 return render(request,'home.html')
             else:
                 massege="password incorrect"
             return render(request,'login.html',{'mg':massege})
 
     return render(request,'login.html')
+
+def logout(request):
+    request.session.clear()
+    return redirect('home')
