@@ -1,3 +1,4 @@
+//login_page
 function verifyPassword() {
   var pw = document.getElementById("pass").value;
   var cpw = document.getElementById("c_pass").value;

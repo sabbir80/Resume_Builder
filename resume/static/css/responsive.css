@@ -1,0 +1,82 @@
+/* home responsive css*/
+@media (max-width: 400px)
+{
+
+    .slide-content h1 {
+    
+    font-size: 1.5rem;
+    text-transform: uppercase;}
+
+	.ml-40
+		{
+			margin-left: 5px!important;
+		    padding-left: 5px!important;
+		    margin-right: 5px!important;
+		    padding-right: 5px!important;
+		}
+
+		.bg-image1
+		{
+			height: 820px;
+		}
+}
+@media (min-width: 400px) and (max-width: 575.98px)
+ {
+ 	.slide-content h1 {
+    
+    font-size: 1.7rem;
+    text-transform: uppercase;
+		}
+
+    .ml-40
+		{
+			margin-left: 20px!important;
+		    padding-left: 5px!important;
+		    margin-right: 20px!important;
+		    padding-right: 5px!important;
+		}
+
+		.bg-image1
+		{
+			height: 800px;
+		}
+
+ }
+
+
+@media (min-width: 576px) and (max-width: 760px) { 
+
+	.slide-content h1 {
+    
+    font-size: 2.3rem;
+    text-transform: uppercase;}
+
+    .bg-image1
+		{
+			height: 600px;
+		}
+
+
+ 
+
+}
+
+@media (min-width: 760px) and (max-width: 860px)
+{
+
+ .navbar-toggler-edit
+  {
+	margin-right: 0px;
+   }
+  .ml-40
+  {
+  
+     margin-right: 10px!important;
+     margin-left: 10px!important;
+  }
+
+  .bg-image1
+		{
+			height: 500px;
+		}
+}

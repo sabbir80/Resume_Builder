@@ -3,9 +3,9 @@ from django.contrib.auth.hashers import make_password,check_password
 from resume.middlewares.auth import auth_middleware
 
 # Create your views here.
-from resume.models import User
+from resume.models import User\
 
-@auth_middleware
+
 def home(request):
     return render(request,'home.html')
 def registration(request):
@@ -62,3 +62,7 @@ def login(request):
 def logout(request):
     request.session.clear()
     return redirect('home')
+
+@auth_middleware
+def form(request):
+    return render(request,'form_page.html')

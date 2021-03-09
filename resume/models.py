@@ -14,5 +14,3 @@ class User(models.Model):
 
 
 
-
-
