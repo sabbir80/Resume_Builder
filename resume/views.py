@@ -3,7 +3,7 @@ from django.contrib.auth.hashers import make_password,check_password
 from resume.middlewares.auth import auth_middleware
 
 # Create your views here.
-from resume.models import User\
+from resume.models import User,Personal_info
 
 
 def home(request):
@@ -13,28 +13,19 @@ def registration(request):
     if request.method=='POST':
         postdata=request.POST
         f_name=postdata.get('Fname')
-        print(f_name)
         l_name=postdata.get('Lname')
         email=postdata.get('email')
         company_name=postdata.get('Cname')
         phone=postdata.get('phone')
         password=make_password(postdata.get('password'))
-        print(f_name,l_name,email,password)
-
-        context={
-            'fn':f_name,
-            'ln':l_name,
-            'email':email,
-            'phone':phone,
-            'cn':company_name,
-            'pass':password
-
-        }
-
+        massege = None
 
         user=User(first_name=f_name,last_name=l_name,email=email,company_name=company_name,phone=phone,password=password)
+        if User.objects.filter(email=email).exists():
+            massege="you have already register"
+            return render(request,'signup.html',{'mg':massege})
         user.save()
-        return render(request,'signup.html',context)
+        return render(request,'signup.html')
 
     return render(request,'signup.html')
 
@@ -65,4 +56,18 @@ def logout(request):
 
 @auth_middleware
 def form(request):
+    if request.method=='POST':
+        postdata=request.POST
+        fname=postdata.get('fname')
+        lname=postdata.get('lname')
+        profession=postdata.get('proff')
+        address=postdata.get('address')
+        phone=postdata.get('phone')
+        email=postdata.get('email')
+        image=postdata.get('image')
+
+        customar=Personal_info(first_name=fname,last_name=lname,profession=profession,address=address,phone=phone,email=email,image=image)
+        customar.save()
+        return render(request,'form_page.html')
+
     return render(request,'form_page.html')

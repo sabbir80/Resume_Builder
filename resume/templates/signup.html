@@ -19,9 +19,14 @@
 
 
                 <div class="logo-img col-6" style="margin: auto; text-align: center;" >
-                    <img src="{% static 'image/logo.png'%}" class="img-fluid" alt="">
+                   <a href="{% url 'home' %}"><img src="{% static 'image/logo.png'%}" class="img-fluid" alt=""></a>
 
                 </div>
+                {%if mg%}
+                <div class="alert alert-danger" role="alert">
+                    {{mg}}
+                </div>
+                {%endif%}
                  <h5 class="" style="font-weight: 600;">Create Account</h5>
                 <div class="row">
 
