@@ -311,6 +311,20 @@
 
  function show(){
   document.getElementById("background-effect").setAttribute("class","actions_one");
+  /*document.getElementById("resume:hover").style.opacity = "1!important";
+  setproperty('.hover-effect:hover{opacity: 1;}');*/
+
+  var css = '.hover-effect:hover {cursor: pointer; opacity: 1;}';
+var style = document.createElement('style');
+
+if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+} else {
+    style.appendChild(document.createTextNode(css));
+}
+
+document.getElementsByTagName('head')[0].appendChild(style);
+
 
  }
 
