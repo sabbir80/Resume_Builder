@@ -39,7 +39,7 @@ class Education(models.Model):
     field_of_study=models.CharField(max_length=20,default=None,null=True)
     graduation_start_date=models.DateField(default=None, null=True)
     graduation_end_date = models.DateField(default=None, null=True)
-    still_working = models.BooleanField(null=True)
+    still_studing = models.BooleanField(null=True)
     description=models.TextField(max_length=255, default=None, null=True)
 
 class Skill(models.Model):
