@@ -3,7 +3,7 @@
 @font-face {
   font-family: 'Conv_HKGrotesk-SemiBold';
   src: url('fonts/HKGrotesk-SemiBold.eot');
-  src: local('☺'), url('assets/fonts/HKGrotesk-SemiBold.woff') format('woff'), url('fonts/HKGrotesk-SemiBold.ttf') format('truetype'), url('fonts/HKGrotesk-SemiBold.svg') format('svg');
+  src: local('â˜º'), url('assets/fonts/HKGrotesk-SemiBold.woff') format('woff'), url('fonts/HKGrotesk-SemiBold.ttf') format('truetype'), url('fonts/HKGrotesk-SemiBold.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -17,15 +17,50 @@
 }
 
 
+/* Form Css */
 
+    .details{
+      font-size: 12px!important;
+      font-weight: 600;
+    }
     .form-control:focus{color: #212529;
     background-color: #fff;
     border-color: #0d6efd!important;
     outline: 0;
     box-shadow: 0 0 0 0 rgb(13 110 253 / 25%)!important;}
 
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+    .custom-file-input::before {
+  content: 'Select Image';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border-right: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 500;
+  font-size: 10pt;
+
+  background-image: url('../image/file.png');
+}
+
+.custom-file-input:hover::before {
+  border-color: black;
+  color: 
+}
+
+
+
 /* Form Css */
 
+
+/*CV CSS*/
 p
 {
   margin-bottom: 2px!important;
@@ -50,14 +85,22 @@ p.bold
 }
 .background-effect
 {
-  height: 488px;
+  height: 470px;
 
-    width: 215px;
+    width: 320px;
     background: black;
     display: flex;
     align-items: center;
     justify-content: center;
 
+
+}
+
+.resume-parent
+{
+   display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .zoom
 {
@@ -68,43 +111,66 @@ p.bold
     display: none;
 }
 
-.resume {
 
-  width: 215px;
-  height: auto;
+
+.resume {
+  width: 320px;
+  height: 470px;
   display: flex;
  -webkit-box-shadow: 0px 3px 22px 7px rgba(0,0,0,0.18);
 box-shadow: 0px 3px 22px 7px rgba(0,0,0,0.18);
-    transform: scale(1,1);
-    transform-origin: 0% -0%;
+   
 }
 .actions_one
 {
-
-    height: 488px;
-    width: 215px;
-    background: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: scale(3,3);
-    transform-origin: 120% -0%;
+  height: 470px;
+  width: 320px;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  transform: translateX(-50%) scale(2.5,2.5);
+}
+.cross-icon
+{
+  font-size: 10px!important;
+}
+.cross-icon
+{
+  position: absolute;
+  right: -3px;
+  top: -5px;
+  margin-bottom: 0;
+  cursor: pointer;
 }
 .hover-effect:hover
 {
-  cursor: pointer;
   opacity: .5;
+  cursor: pointer;
 }
 
+.hover-effect:hover>.zoom
+{
+  display: block;
+}
+.actions_one .resume-parent.hover-effect:hover {
+    opacity: 1;
+}
+.actions_one .resume-parent.hover-effect:hover .zoom {
+    display: none;
+}
 
 .resume_left {
-  width: 45%;
+  width: 30%;
 
   background: #0bb5f4;
 }
 .resume_profile {
   width: 100%;
-  height: 97px;
+  height: 100px;
 }
 
 .resume_profile img {
@@ -227,7 +293,7 @@ align-items: center;
 }
 
 .resume .resume_right {
-  width: 60%;
+  width: 70%;
   background: #fff;
   padding: 5px;
 }
@@ -315,6 +381,8 @@ align-items: center;
 {
   height: 1000px;
 }
+
+/*CV CSS*/
 
 /*responsive*/
 
