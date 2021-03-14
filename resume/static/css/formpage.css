@@ -3,7 +3,7 @@
 @font-face {
   font-family: 'Conv_HKGrotesk-SemiBold';
   src: url('fonts/HKGrotesk-SemiBold.eot');
-  src: local('ÃƒÆ’Ã‚Â¢Ãƒâ€¹Ã…â€œÃƒâ€šÃ‚Âº'), url('assets/fonts/HKGrotesk-SemiBold.woff') format('woff'), url('fonts/HKGrotesk-SemiBold.ttf') format('truetype'), url('fonts/HKGrotesk-SemiBold.svg') format('svg');
+  src: local('ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¹Ãƒâ€¦Ã¢â‚¬Å“ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âº'), url('assets/fonts/HKGrotesk-SemiBold.woff') format('woff'), url('fonts/HKGrotesk-SemiBold.ttf') format('truetype'), url('fonts/HKGrotesk-SemiBold.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -34,7 +34,7 @@
     align-items: center;
     display: flex;
 }
-   
+
 li.nav-item.before-dash-item.ml-2 i {
     padding-right: 5px;
     color: #1B8EF2;
@@ -173,9 +173,10 @@ box-shadow: 0px 3px 22px 7px rgba(0,0,0,0.18);
 .cross-icon
 {
   position: absolute;
-  top: -10%;
+  top: -1%;
   margin-bottom: 0;
   cursor: pointer;
+  right: -1%;
 }
 .hover-effect:hover
 {
