@@ -3,7 +3,7 @@
 @font-face {
   font-family: 'Conv_HKGrotesk-SemiBold';
   src: url('fonts/HKGrotesk-SemiBold.eot');
-  src: local('â˜º'), url('assets/fonts/HKGrotesk-SemiBold.woff') format('woff'), url('fonts/HKGrotesk-SemiBold.ttf') format('truetype'), url('fonts/HKGrotesk-SemiBold.svg') format('svg');
+  src: local('ÃƒÆ’Ã‚Â¢Ãƒâ€¹Ã…â€œÃƒâ€šÃ‚Âº'), url('assets/fonts/HKGrotesk-SemiBold.woff') format('woff'), url('fonts/HKGrotesk-SemiBold.ttf') format('truetype'), url('fonts/HKGrotesk-SemiBold.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,13 +15,45 @@
   box-sizing: border-box;
   font-family: 'Poppins',sans-serif;
 }
+.ml-2
+{
+  margin-left: 2.7rem;
+}
 
+ /*header*/
+    .before-dash-item::before
+    {
+    content: "";
+    position: absolute;
+    width: 1.7rem;
+    height: 4px;
+    margin-left: -36px;
+    background: #1B8EF2;
+    }
+    li.nav-item.before-dash-item.ml-2 {
+    align-items: center;
+    display: flex;
+}
+   
+li.nav-item.before-dash-item.ml-2 i {
+    padding-right: 5px;
+    color: #1B8EF2;
+}
+li.nav-item i {
+    color: #1B8EF2;
+}
+ /*header*/
 
 /* Form Css */
-
+    .body-header-line
+    {
+      font-weight: 400;
+      color: #1B8EF2;
+    }
     .details{
       font-size: 12px!important;
-      font-weight: 600;
+      font-weight: 500;
+      color: #212529;
     }
     .form-control:focus{color: #212529;
     background-color: #fff;
@@ -52,7 +84,7 @@
 
 .custom-file-input:hover::before {
   border-color: black;
-  color: 
+  color:
 }
 
 
@@ -119,7 +151,7 @@ p.bold
   display: flex;
  -webkit-box-shadow: 0px 3px 22px 7px rgba(0,0,0,0.18);
 box-shadow: 0px 3px 22px 7px rgba(0,0,0,0.18);
-   
+
 }
 .actions_one
 {
@@ -141,8 +173,7 @@ box-shadow: 0px 3px 22px 7px rgba(0,0,0,0.18);
 .cross-icon
 {
   position: absolute;
-  right: -3px;
-  top: -5px;
+  top: -10%;
   margin-bottom: 0;
   cursor: pointer;
 }
@@ -166,7 +197,7 @@ box-shadow: 0px 3px 22px 7px rgba(0,0,0,0.18);
 .resume_left {
   width: 30%;
 
-  background: #0bb5f4;
+  background: #1B8EF2;
 }
 .resume_profile {
   width: 100%;
@@ -232,7 +263,7 @@ box-shadow: 0px 3px 22px 7px rgba(0,0,0,0.18);
   width: 12px;
   height: 12px;
   background: #fff;
-  color: #0bb5f4;
+  color: #1B8EF2;
   border-radius: 50%;
   /* margin-right: 0px; */
   font-size: 6px;
@@ -299,7 +330,7 @@ align-items: center;
 }
 
 .resume .resume_right .bold {
-  color: #0bb5f4;
+  color: #1B8EF2;
 }
 
 .resume .resume_right .resume_work ul,
@@ -339,7 +370,7 @@ align-items: center;
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  border: 2px solid #0bb5f4;
+  border: 2px solid #1B8EF2;
 }
 
 .resume_right .resume_work ul li:after,
@@ -350,7 +381,7 @@ align-items: center;
   left: -8px;
   width: 2px;
   height: 46px;
-  background: #0bb5f4;
+  background: #1B8EF2;
 }
 
  .resume_right .resume_hobby ul {
@@ -361,10 +392,10 @@ align-items: center;
  .resume_right .resume_hobby ul li {
   width: 45px!important;
   height: 45px!important;
-  border: 2px solid #0bb5f4;
+  border: 2px solid #1B8EF2;
   border-radius: 50%;
   position: relative;
-  color: #0bb5f4;
+  color: #1B8EF2;
 }
 
  .resume_right .resume_hobby ul li i {

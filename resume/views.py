@@ -56,7 +56,6 @@ def logout(request):
 
 @auth_middleware
 def form(request):
-
     if request.method=='POST':
         postdata=request.POST
         fname=postdata.get('fname')
@@ -82,12 +81,11 @@ def from_summary(request):
     return render(request,'form_page_summary.html')
 
 def resume1(request):
-    id=request.session.get('user_id')
+
     personal_info=Personal_info.objects.all()
-    p=Personal_info.get_data_by_id(id)
 
     context={
-        'personal_info':p
+        'personal_info':personal_info
 
     }
 
