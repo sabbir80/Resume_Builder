@@ -56,6 +56,7 @@ def logout(request):
 
 @auth_middleware
 def form(request):
+
     if request.method=='POST':
         postdata=request.POST
         fname=postdata.get('fname')
@@ -68,6 +69,28 @@ def form(request):
 
         customar=Personal_info(first_name=fname,last_name=lname,profession=profession,address=address,phone=phone,email=email,image=image)
         customar.save()
-        return render(request,'form_page.html')
+        return redirect('form_work')
 
     return render(request,'form_page.html')
+def from_work(request):
+    return render(request,'form_page_work.html')
+def from_edu(request):
+    return render(request,'form_page_edu.html')
+def from_skill(request):
+    return render(request,'form_page_skill.html')
+def from_summary(request):
+    return render(request,'form_page_summary.html')
+
+def resume1(request):
+    id=request.session.get('user_id')
+    personal_info=Personal_info.objects.all()
+    p=Personal_info.get_data_by_id(id)
+
+    context={
+        'personal_info':p
+
+    }
+
+
+
+    return render(request,'Resume/resume1.html',context)

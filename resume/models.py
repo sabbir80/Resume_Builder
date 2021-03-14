@@ -13,6 +13,7 @@ class User(models.Model):
         return User.objects.get(email=email)
 
 class Personal_info(models.Model):
+    user_id=models.ForeignKey(User,on_delete=models.CASCADE,default=None,null=True)
     first_name = models.CharField(max_length=20, default=None, null=True)
     last_name = models.CharField(max_length=20, default=None, null=True)
     profession=models.CharField(max_length=20,default=None,null=True)
@@ -20,6 +21,10 @@ class Personal_info(models.Model):
     phone=models.CharField(max_length=20,default=None,null=True)
     email=models.EmailField(max_length=20,default=None,null=True)
     image=models.ImageField(upload_to='upload/profile_pic',blank=True,null=True)
+
+    @staticmethod
+    def get_data_by_id(id):
+        return Personal_info.objects.get(user_id=id)
 
     def __str__(self):
         return self.email

@@ -19,43 +19,39 @@
       <div class="container mt-5 ">
         <div class="row justify-content-center"><!--row-->
           <div class="col-10 col-sm-10 col-md-7 mt-5">
-               <h2>What’s the best way for employers to contact you?</h2>
-               <p>We suggest including an email and phone number.</p>
+               <h2>Tell us about your most recent job</h2>
+               <p>We’ll start there and work backward.</p>
               <div class="content">
-                <form action="form" method="POST">
+                <form action="form_work" method="POST">
                     {% csrf_token %}
 
                       <div class="row">
                             <div class="col-12 col-md-6 mt-4">
-                                 <span class="details">First Name</span>
-                                 <input class="form-control form-control-edit" id="u_name" type="text"  name="fname" onclick="showInput()">
+                                 <span class="details">Job title</span>
+                                 <input class="form-control form-control-edit" type="text"  name="title">
                             </div>
                              <div class="col-12 col-md-6 mt-4">
-                                 <span class="details">Last Name</span>
-                                 <input class="form-control form-control-edit" type="text"   name="lname">
+                                 <span class="details">Employeer</span>
+                                 <input class="form-control form-control-edit" type="text"   name="emp">
                             </div>
 
                             <div class="col-12 col-md-12 mt-4">
-                                 <span class="details">Profession</span>
-                                 <input class="form-control form-control-edit" type="text"   name="proff">
+                                 <span class="details">Work Description</span>
+                                 <textarea class="form-control form-control-edit" name="wd"></textarea>
                             </div>
 
                             <div class="col-12 col-md-6 mt-4">
-                                 <span class="details">Address</span>
-                                 <input class="form-control form-control-edit" type="text" name="address">
+                                 <span class="details">Start Date</span>
+                                 <input class="form-control form-control-edit" type="date" name="sd">
                             </div>
 
                              <div class="col-12 col-md-6 mt-4">
-                                 <span class="details">Phone Number</span>
-                                 <input class="form-control form-control-edit" type="text"  name="phone">
-                            </div>
-                             <div class="col-12 col-md-6 mt-4">
-                                 <span class="details">Email</span>
-                                 <input class="form-control form-control-edit" type="email"   name="email">
+                                 <span class="details">End Date</span>
+                                 <input class="form-control form-control-edit" type="date"  name="ed">
                             </div>
                           <div class="col-12 col-md-6 mt-4">
-                                 <span class="details">Image</span>
-                                 <input class="form-control form-control-edit " type="file"  name="image" >
+                                 <input type="checkbox"  name="ed">
+                              <label for="currentlyAttending">I currently attend here</label>
                             </div>
 
                             <div class="col-12 col-md-12 mt-4 mr-auto">
@@ -85,7 +81,7 @@
                        <div class="resume_content">
                          <div class="resume_item resume_info">
                                <div class="title">
-                                 <p class="bold" id="ooo"></p>
+                                 <p class="bold">Masturain Chand</p>
                                  <p class="regular">Software Engineer (Intern)</p>
                                </div>
                                    <ul>
@@ -305,11 +301,6 @@
   </div>
 
 <script type="text/javascript">
-
-    function showInput() {
-        document.getElementById('ooo').innerHTML =
-                    document.getElementById("u_name").value;
-    }
 
   /*function mouseOver(){
     document.getElementById("b").style.display = "block";
