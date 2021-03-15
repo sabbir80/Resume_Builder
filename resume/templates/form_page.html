@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" href="{% static 'image/icon.png' %}">
     <title> Form  </title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/formpage.css' %}">
 
@@ -34,36 +35,36 @@
                <h2 class="body-header-line">What’s the best way for employers to contact you?</h2>
                <p>We suggest including an email and phone number.</p>
               <div class="content">
-                <form action="form" method="POST">
+                <form action="form" method="POST" >
                     {% csrf_token %}
 
                       <div class="row">
                             <div class="col-12 col-md-6 mt-4">
                                  <span class="details">First Name</span>
-                                 <input class="form-control form-control-edit" id="u_name" type="text"  name="fname" onclick="showInput()">
+                                 <input class="form-control form-control-edit" id="f_name" type="text"  name="fname" oninput="f1name()">
                             </div>
                              <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Last Name</span>
-                                 <input class="form-control form-control-edit" type="text"   name="lname">
+                                 <input class="form-control form-control-edit" type="text"  id="l_name"  name="lname" oninput="l1name()">
                             </div>
 
                             <div class="col-12 col-md-12 mt-4">
                                  <span class="details">Profession</span>
-                                 <input class="form-control form-control-edit" type="text"   name="proff">
+                                 <input class="form-control form-control-edit" type="text" id="profession1"    name="proff" oninput="p1profession()">
                             </div>
 
                             <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Address</span>
-                                 <input class="form-control form-control-edit" type="text" name="address">
+                                 <input class="form-control form-control-edit" type="text" id="addressInput" name="address" oninput="a1addressInput()">
                             </div>
 
                              <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Phone Number</span>
-                                 <input class="form-control form-control-edit" type="text"  name="phone">
+                                 <input class="form-control form-control-edit" type="text" id="phoneInput" name="phone" oninput="p1phoneInput()">
                             </div>
                              <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Email</span>
-                                 <input class="form-control form-control-edit" type="email"   name="email">
+                                 <input class="form-control form-control-edit" type="email" id="emailInput"   name="email" oninput="e1emailIpunt()">
                             </div>
                           <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Image</span>
@@ -97,15 +98,15 @@
                        <div class="resume_content">
                          <div class="resume_item resume_info">
                                <div class="title">
-                                 <p class="bold" id="ooo"></p>
-                                 <p class="regular">Software Engineer (Intern)</p>
+                                 <p class="bold" ><span id="fname">Masturain</span> <span id="lname">Chand</span></p>
+                                 <p class="regular" id="profession2">Software Engineer (Intern)</p>
                                </div>
                                    <ul>
                                      <li>
                                        <div class="icon">
                                          <i class="fas fa-map-signs"></i>
                                        </div>
-                                       <div class="data">
+                                       <div class="data" id="a2addressInput">
                                         Sector 10,Uttara. <br /> Bangladesh
                                        </div>
                                      </li>
@@ -113,7 +114,7 @@
                                        <div class="icon">
                                          <i class="fas fa-mobile-alt"></i>
                                        </div>
-                                       <div class="data">
+                                       <div class="data" id="p2phoneInput">
                                          01794210727
                                        </div>
                                      </li>
@@ -121,18 +122,11 @@
                                        <div class="icon">
                                          <i class="fas fa-envelope"></i>
                                        </div>
-                                       <div class="data">
+                                       <div class="data" id="e2emailInput">
                                          17103389@iubat.edu
                                        </div>
                                      </li>
-                                     <li>
-                                       <div class="icon">
-                                         <i class="fab fa-weebly"></i>
-                                       </div>
-                                       <div class="data">
-                                         www.masturainchand.com
-                                       </div>
-                                     </li>
+                                     
                                    </ul>
                          </div>
                          <div class="resume_item resume_skills">
@@ -198,7 +192,7 @@
                                </div>
                                <div class="data">
                                  <p class="semi-bold">Facebook</p>
-                                 <p>https://www.facebook.com/chand.masturain/</p>
+                                 <p class="social-link">https://www.facebook.com/chand.masturain/</p>
                                </div>
                              </li>
                              <li>
@@ -207,7 +201,7 @@
                                </div>
                                <div class="data">
                                  <p class="semi-bold">Twitter</p>
-                                 <p>https://twitter.com/masturain</p>
+                                 <p class="social-link">https://twitter.com/</p>
                                </div>
                              </li>
                              <li>
@@ -216,7 +210,7 @@
                                </div>
                                <div class="data">
                                  <p class="semi-bold">Linkedin</p>
-                                 <p>https://www.linkedin.com/in/masturain-chand-0685681a2/</p>
+                                 <p class="social-link">https://www.linkedin.com/in/masturain-chand-0685681a2/</p>
                                </div>
                              </li>
                              <li>
@@ -225,7 +219,7 @@
                                </div>
                                <div class="data">
                                  <p class="semi-bold">GitHub</p>
-                                 <p>https://github.com/Masturain-Chand</p>
+                                 <p class="social-link">https://github.com/Masturain-Chand</p>
                                </div>
                              </li>
                            </ul>
@@ -318,10 +312,7 @@
 
 <script type="text/javascript">
 
-    function showInput() {
-        document.getElementById('ooo').innerHTML =
-                    document.getElementById("u_name").value;
-    }
+    
 
   /*function mouseOver(){
     document.getElementById("b").style.display = "block";
@@ -339,6 +330,30 @@
  //    document.getElementById("background-effect").removeAttribute("class");
  //  }
 
+  function f1name() {
+                    var x = document.getElementById("f_name").value;
+                    document.getElementById("fname").innerHTML = x;
+                    }
+  function l1name() {
+                    var x = document.getElementById("l_name").value;
+                    document.getElementById("lname").innerHTML = x;
+                    }
+   function p1profession() {
+                    var x = document.getElementById("profession1").value;
+                    document.getElementById("profession2").innerHTML = x;
+                    }
+   function a1addressInput() {
+                    var x = document.getElementById("addressInput").value;
+                    document.getElementById("a2addressInput").innerHTML = x;
+                    }
+  function p1phoneInput() {
+                    var x = document.getElementById("phoneInput").value;
+                    document.getElementById("p2phoneInput").innerHTML = x;
+                    }
+  function e1emailIpunt() {
+                    var x = document.getElementById("emailInput").value;
+                    document.getElementById("e2emailInput").innerHTML = x;
+                    }
 
 
 </script>
