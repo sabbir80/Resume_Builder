@@ -4,7 +4,7 @@ from resume import views
 
 urlpatterns = [
     path('login',views.login,name='login'),
-    path('signup',views.registration,name='ragistration'),
+    path('signup',views.registration,name='registration'),
     path('',views.home , name='home'),
     path('form', views.form , name='form'),
     path('logout',views.logout, name='logout'),
