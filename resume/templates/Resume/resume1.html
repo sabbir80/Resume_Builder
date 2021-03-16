@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> template  </title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/formpage.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/resume1.css' %}">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -24,14 +24,17 @@
 
 
                 <div class="resume_left">
+                    {% for i in data %}
+
                          <div class="resume_profile">
-                            <img src="{% static 'image/cv1.jpg'%}" alt="profile_pic">
+                            <img src="{{ i.image.url }}" alt="profile_pic">
                          </div>
                        <div class="resume_content">
                          <div class="resume_item resume_info">
-                             {% for i in personal_info %}
+
+
                                <div class="title">
-                                 <p class="bold">{{ i.first_name}} {{ i.last_name }}</p>
+                                 <p class="bold">{{ i.first_name }} {{ i.last_name }}</p>
                                  <p class="regular">Software Engineer (Intern)</p>
                                </div>
                                    <ul>
@@ -40,7 +43,7 @@
                                          <i class="fas fa-map-signs"></i>
                                        </div>
                                        <div class="data">
-                                        {{ i.adress }} <br /> Bangladesh
+                                        {{ i.address }} <br /> Bangladesh
                                        </div>
                                      </li>
                                      <li>
@@ -48,7 +51,7 @@
                                          <i class="fas fa-mobile-alt"></i>
                                        </div>
                                        <div class="data">
-                                         01794210727
+                                           {{ i.phone }}
                                        </div>
                                      </li>
                                      <li>
@@ -56,7 +59,7 @@
                                          <i class="fas fa-envelope"></i>
                                        </div>
                                        <div class="data">
-                                         17103389@iubat.edu
+                                         {{ i.email }}
                                        </div>
                                      </li>
                                      <li>
@@ -69,6 +72,7 @@
                                      </li>
                                    </ul>
                              {% endfor %}
+
                          </div>
                          <div class="resume_item resume_skills">
                            <div class="title">
@@ -233,6 +237,9 @@
                       <div class="resume_item resume_hobby">
                         <div class="title">
                              <p class="bold">Hobby</p>
+
+
+
                            </div>
 
                       </div>
@@ -243,5 +250,12 @@
 
           </div>
         </div><!--row-->
+
+
+
+  <div class="container clearfix">
+
+
+  </div>
 </body>
 </html>

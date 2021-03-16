@@ -11,6 +11,9 @@ class User(models.Model):
     @staticmethod
     def get_id_by_mail(email):
         return User.objects.get(email=email)
+    @staticmethod
+    def get_id_by_id(id):
+        return User.objects.get(id=id)
 
 class Personal_info(models.Model):
     user_id=models.ForeignKey(User,on_delete=models.CASCADE,default=None,null=True)
@@ -22,13 +25,13 @@ class Personal_info(models.Model):
     email=models.EmailField(max_length=20,default=None,null=True)
     image=models.ImageField(upload_to='upload/profile_pic',blank=True,null=True)
 
-    @staticmethod
-    def get_data_by_id(id):
-        return Personal_info.objects.get(user_id=id)
 
-    def __str__(self):
-        return self.email
+
+    @staticmethod
+    def get_id_by_id(id):
+        return Personal_info.objects.get(id=id)
 class Work_history(models.Model):
+    personal_info_id=models.ForeignKey(Personal_info,on_delete=models.CASCADE,default=None,null=True)
     job_title = models.CharField(max_length=20, default=None, null=True)
     employer = models.CharField(max_length=20, default=None, null=True)
     work_description = models.TextField(max_length=255, default=None, null=True)
