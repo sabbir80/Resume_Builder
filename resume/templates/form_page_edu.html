@@ -34,45 +34,54 @@
                <h2 class="body-header-line">Tell us about your education</h2>
                <p>include every school, even if you are still there or did not graduate</p>
               <div class="content">
-                <form action="form" method="POST">
+                <form action="form_edu" method="POST">
                     {% csrf_token %}
 
                       <div class="row">
                             <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Institute Name</span>
-                                 <input class="form-control form-control-edit" type="text"  name="fname">
+                                 <input class="form-control form-control-edit" type="text"  name="Iname">
                             </div>
                              <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Institute Location</span>
-                                 <input class="form-control form-control-edit" type="text"  name="lname">
+                                 <input class="form-control form-control-edit" type="text"  name="ILname">
                             </div>
 
                             <div class="col-12 col-md-12 mt-4">
                                  <span class="details">Dgree</span>
-                                 <input class="form-control form-control-edit" type="text"   name="proff">
+                                 <input class="form-control form-control-edit" type="text"   name="dgree">
                             </div>
 
                             <div class="col-12 col-md-12  mt-4">
                                  <span class="details">Field of Study</span>
-                                 <input class="form-control form-control-edit" type="text" name="address">
+                                 <input class="form-control form-control-edit" type="text" name="FOS">
+                            </div>
+                            <div class="col-12 col-md-12  mt-4">
+                                 <span class="details">Description</span>
+                                 <input class="form-control form-control-edit" type="text" name="des">
                             </div>
 
                              <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Graduation Start Date</span>
-                                 <input class="form-control form-control-edit" type="date"  name="phone">
+                                 <input class="form-control form-control-edit" type="date"  name="SD" required>
                             </div>
                              <div class="col-12 col-md-6 mt-4">
-                                 <span class="details">Graduation end Date</span>
-                                 <input class="form-control form-control-edit" type="date"   name="email">
+                                 <span class="details">Graduation end Date *</span>
+                                 <input class="form-control form-control-edit" type="date"   name="ED">
                             </div>
                           <div class="col-12 col-md-6 mt-4">
-                                 <input type="checkbox"  name="ed">
+                                 <input type="checkbox"  name="CA">
                               <label for="currentlyAttending">I currently attend here</label>
                             </div>
 
                           <div class="col-12 col-md-12 mt-4 mr-auto">
                                    <div class="col-4">
                                       <input class="form-control btn btn-outline-primary " type="submit" value="Submit">
+                                    </div>
+                            </div>
+                          <div class="col-12 col-md-6 mt-4 mr-auto">
+                                   <div class="col-8" style="display: block; float: right;">
+                                      <a href="{% url 'form_edu' %}"> add more work experience</a>
                                     </div>
                             </div>
                         </div>

@@ -34,41 +34,23 @@
                <h2 class="body-header-line">What’s the best way for employers to contact you?</h2>
                <p>We suggest including an email and phone number.</p>
               <div class="content">
-                <form action="form" method="POST">
+                <form action="" method="POST">
                     {% csrf_token %}
 
                       <div class="row">
                             <div class="col-12 col-md-6 mt-4">
-                                 <span class="details">First Name</span>
-                                 <input class="form-control form-control-edit" type="text"  name="fname">
+                                 <span class="details">Skill</span>
+                                 <input class="form-control form-control-edit" type="text"  name="skill" id="skill">
                             </div>
-                             <div class="col-12 col-md-6 mt-4">
-                                 <span class="details">Last Name</span>
-                                 <input class="form-control form-control-edit" type="text"   name="lname">
-                            </div>
+                          <div class="col-12 col-md-3 mt-auto">
 
-                            <div class="col-12 col-md-12 mt-4">
-                                 <span class="details">Profession</span>
-                                 <input class="form-control form-control-edit" type="text"   name="proff">
-                            </div>
+                              <input class="form-control form-control-edit btn btn-primary" type="button"  value="ADD" id="add_more_field">
+                          </div>
+                          <div class="col-12 col-md-3 mt-auto">
 
-                            <div class="col-12 col-md-6 mt-4">
-                                 <span class="details">Address</span>
-                                 <input class="form-control form-control-edit" type="text" name="address">
-                            </div>
+                              <input class="form-control form-control-edit btn btn-danger " type="button"  value="REMOVE" id="remove_field">
+                          </div>
 
-                             <div class="col-12 col-md-6 mt-4">
-                                 <span class="details">Phone Number</span>
-                                 <input class="form-control form-control-edit" type="text"  name="phone">
-                            </div>
-                             <div class="col-12 col-md-6 mt-4">
-                                 <span class="details">Email</span>
-                                 <input class="form-control form-control-edit" type="email"   name="email">
-                            </div>
-                          <div class="col-12 col-md-6 mt-4">
-                                 <span class="details">Image</span>
-                                 <input class="form-control form-control-edit " type="file"  name="image" >
-                            </div>
 
                             <div class="col-12 col-md-12 mt-4 mr-auto">
                                    <div class="col-4">
@@ -333,7 +315,18 @@
  //    //console.log(document.getElementById("background-effect"));
  //    document.getElementById("background-effect").removeAttribute("class");
  //  }
+var input_field=document.getElementById('input');
+var add_more_field=document.getElementById('add_more_field');
+var remove_field=document.getElementById('remove_field');
 
+add_more_field.onclick=function (){
+    var newField=document.createElement('input');
+    newField.setAttribute('type','text');
+    newField.setAttribute('name','skill');
+    newField.setAttribute('class','form-control form-control-edit');
+    newField.setAttribute('id','input');
+
+}
 
 
 </script>

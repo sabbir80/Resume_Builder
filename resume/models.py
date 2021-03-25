@@ -23,7 +23,8 @@ class Personal_info(models.Model):
     address=models.CharField(max_length=20,default=None,null=True)
     phone=models.CharField(max_length=20,default=None,null=True)
     email=models.EmailField(max_length=20,default=None,null=True)
-    image=models.ImageField(upload_to='upload/profile_pic',blank=True,null=True)
+    image=models.ImageField(upload_to="upload/image/",default=None,null=True)
+
 
 
 
@@ -41,6 +42,7 @@ class Work_history(models.Model):
     still_working=models.BooleanField(null=True)
 
 class Education(models.Model):
+    personal_info_id=models.ForeignKey(Personal_info,on_delete=models.CASCADE,default=None,null=True)
     institute_name = models.CharField(max_length=20, default=None, null=True)
     institute_location = models.CharField(max_length=20, default=None, null=True)
     degree = models.CharField(max_length=20, default=None, null=True)
@@ -51,7 +53,9 @@ class Education(models.Model):
     description=models.TextField(max_length=255, default=None, null=True)
 
 class Skill(models.Model):
+    personal_info_id = models.ForeignKey(Personal_info, on_delete=models.CASCADE, default=None, null=True)
     skill= models.CharField(max_length=20, default=None, null=True)
 class Summary(models.Model):
+    personal_info_id = models.ForeignKey(Personal_info, on_delete=models.CASCADE, default=None, null=True)
     backgound_description=models.TextField(max_length=255, default=None, null=True)
 
