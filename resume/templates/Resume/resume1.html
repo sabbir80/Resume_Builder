@@ -82,51 +82,14 @@
                              <p class="bold">skill's</p>
                            </div>
                            <ul>
+                               {% for i in skill %}
                              <li>
                                <div class="skill_name">
-                                 HTML
+                                 {{ i.skill }}
                                </div>
-                               <div class="skill_progress">
-                                 <span style="width: 80%;"></span>
-                               </div>
-                               <div class="skill_per">80%</div>
                              </li>
-                             <li>
-                               <div class="skill_name">
-                                 CSS
-                               </div>
-                               <div class="skill_progress">
-                                 <span style="width: 70%;"></span>
-                               </div>
-                               <div class="skill_per">70%</div>
-                             </li>
-                             <li>
-                               <div class="skill_name">
-                                 JAVASCRIPTS
-                               </div>
-                               <div class="skill_progress">
-                                 <span style="width: 90%;"></span>
-                               </div>
-                               <div class="skill_per">90%</div>
-                             </li>
-                             <li>
-                               <div class="skill_name">
-                                 PYTHON
-                               </div>
-                               <div class="skill_progress">
-                                 <span style="width: 60%;"></span>
-                               </div>
-                               <div class="skill_per">60%</div>
-                             </li>
-                             <li>
-                               <div class="skill_name">
-                                 DJANGO
-                               </div>
-                               <div class="skill_progress">
-                                 <span style="width: 88%;"></span>
-                               </div>
-                               <div class="skill_per">88%</div>
-                             </li>
+                               {% endfor %}
+
                            </ul>
                          </div>
                          <div class="resume_item resume_social">
@@ -181,7 +144,9 @@
                           <div class="title">
                              <p class="bold">About</p>
                            </div>
-                          <p>Hello, This is chand</p>
+                          {% for i in about %}
+                          <p>{{ i.backgound_description }}</p>
+                              {% endfor %}
                       </div>
 {% endfor %}
                       <div class="resume_item resume_work">

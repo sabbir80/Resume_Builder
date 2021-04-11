@@ -3,7 +3,7 @@ from django.contrib.auth.hashers import make_password,check_password
 from resume.middlewares.auth import auth_middleware
 
 # Create your views here.
-from resume.models import User,Personal_info,Work_history,Education
+from resume.models import User,Personal_info,Work_history,Education,Skill,Summary
 
 
 def home(request):
@@ -132,10 +132,25 @@ def from_edu(request):
     return render(request,'form_page_edu.html')
 @auth_middleware
 def from_skill(request):
+    if request.method=='POST':
+        postdata=request.POST
+        id = request.session.get('person_pk')
+        skill=postdata.getlist('skill[]')
+        for i in skill:
+            user=Skill(personal_info_id=Personal_info.get_id_by_id(id),skill=i)
+            user.save()
+        return redirect('form_summary')
 
     return render(request,'form_page_skill.html')
 @auth_middleware
 def from_summary(request):
+    if request.method=='POST':
+        id = request.session.get('person_pk')
+        postdata=request.POST
+        about=postdata.get('about')
+        s=Summary(personal_info_id=Personal_info.get_id_by_id(id),backgound_description=about)
+        s.save()
+        return redirect('final')
 
     return render(request,'form_page_summary.html')
 @auth_middleware
@@ -146,10 +161,21 @@ def resume1(request):
     #print('ki',person)
     work=Work_history.objects.filter(personal_info_id=pid)
     education=Education.objects.filter(personal_info_id=pid)
+    skill=Skill.objects.filter(personal_info_id=pid)
+    about = Summary.objects.filter(personal_info_id=pid)
     context={
         'data': person,
         'work':work,
-        'education':education
+        'education':education,
+        'skill':skill,
+        'about':about
     }
 
     return render(request,'Resume/resume1.html',context)
+@auth_middleware
+def final(request):
+    person=Personal_info.objects.all()
+    context={
+        'person':person
+    }
+    return render(request,'finalization.html',context)
