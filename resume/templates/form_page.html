@@ -70,12 +70,12 @@
                             </div>
                           <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Image</span>
-                                 <input class="form-control form-control-edit " type="file"  name="image" >
+                                 <input class="form-control form-control-edit " type="file"  name="image" accept="image/*" onchange="loadFile(event)" >
                             </div>
 
                             <div class="col-12 col-md-12 mt-4 mr-auto">
                                    <div class="col-4">
-                                      <input class="form-control btn btn-outline-primary " type="submit" value="Submit">
+                                      <input class="form-control btn btn-outline-primary" type="submit" value="Submit">
                                     </div>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                     
                 <div class="resume_left">
                          <div class="resume_profile">
-                            <img src="{% static 'image/cv1.jpg'%}" alt="profile_pic">
+                            <img id="output" src="{% static 'image/cv1.jpg'%}" alt="profile_pic">
                          </div>
                        <div class="resume_content">
                          <div class="resume_item resume_info">
@@ -357,7 +357,13 @@
                     document.getElementById("e2emailInput").innerHTML = x;
                     }
 
-
+var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
 </script>
 
 <!-- Script start -->
