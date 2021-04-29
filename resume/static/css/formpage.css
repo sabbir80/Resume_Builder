@@ -45,6 +45,14 @@ li.nav-item i {
  /*header*/
 
 /* Form Css */
+    .social-link
+    {
+      font-size: 5px!important;
+      width: 100%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
     .body-header-line
     {
       font-weight: 400;
@@ -279,6 +287,7 @@ box-shadow: 0px 3px 22px 7px rgba(0,0,0,0.18);
   color: #b1eaff;
   font-size: 5px;
   margin-left: 16px;
+  width: 80%;
 }
 .resume .resume_left .resume_skills ul li {
 
@@ -411,7 +420,7 @@ align-items: center;
 }
 .clearfix
 {
-  height: 1000px;
+  height: 400px;
 }
 
 /*CV CSS*/

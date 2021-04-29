@@ -12,5 +12,7 @@ urlpatterns = [
     path('form_edu', views.from_edu, name='form_edu'),
     path('form_skill', views.from_skill, name='form_skill'),
     path('form_summary', views.from_summary , name='form_summary'),
-    path('template',views.resume1,name='resume1')
+    path('template',views.resume1,name='resume1'),
+    path('final',views.final,name='final')
+
 ]

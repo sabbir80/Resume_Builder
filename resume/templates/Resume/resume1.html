@@ -22,12 +22,16 @@
                       <div class="resume-parent hover-effect"><div class="zoom" id="b"><i class="fas fa-search-plus"></i></div>
                   <div class="resume " id="resume" onclick="show()">
 
+{% for i in data %}
 
                 <div class="resume_left">
-                    {% for i in data %}
+
+
+
 
                          <div class="resume_profile">
                             <img src="{{ i.image.url }}" alt="profile_pic">
+
                          </div>
                        <div class="resume_content">
                          <div class="resume_item resume_info">
@@ -35,7 +39,7 @@
 
                                <div class="title">
                                  <p class="bold">{{ i.first_name }} {{ i.last_name }}</p>
-                                 <p class="regular">Software Engineer (Intern)</p>
+                                 <p class="regular">{{i.profession }}</p>
                                </div>
                                    <ul>
                                      <li>
@@ -66,64 +70,26 @@
                                        <div class="icon">
                                          <i class="fab fa-weebly"></i>
                                        </div>
-                                       <div class="data">
-                                         www.masturainchand.com
-                                       </div>
+
                                      </li>
                                    </ul>
-                             {% endfor %}
+
 
                          </div>
+
                          <div class="resume_item resume_skills">
                            <div class="title">
                              <p class="bold">skill's</p>
                            </div>
                            <ul>
+                               {% for i in skill %}
                              <li>
                                <div class="skill_name">
-                                 HTML
+                                 {{ i.skill }}
                                </div>
-                               <div class="skill_progress">
-                                 <span style="width: 80%;"></span>
-                               </div>
-                               <div class="skill_per">80%</div>
                              </li>
-                             <li>
-                               <div class="skill_name">
-                                 CSS
-                               </div>
-                               <div class="skill_progress">
-                                 <span style="width: 70%;"></span>
-                               </div>
-                               <div class="skill_per">70%</div>
-                             </li>
-                             <li>
-                               <div class="skill_name">
-                                 JAVASCRIPTS
-                               </div>
-                               <div class="skill_progress">
-                                 <span style="width: 90%;"></span>
-                               </div>
-                               <div class="skill_per">90%</div>
-                             </li>
-                             <li>
-                               <div class="skill_name">
-                                 PYTHON
-                               </div>
-                               <div class="skill_progress">
-                                 <span style="width: 60%;"></span>
-                               </div>
-                               <div class="skill_per">60%</div>
-                             </li>
-                             <li>
-                               <div class="skill_name">
-                                 DJANGO
-                               </div>
-                               <div class="skill_progress">
-                                 <span style="width: 88%;"></span>
-                               </div>
-                               <div class="skill_per">88%</div>
-                             </li>
+                               {% endfor %}
+
                            </ul>
                          </div>
                          <div class="resume_item resume_social">
@@ -171,67 +137,53 @@
                          </div>
                        </div>
                     </div>
+
+
                     <div class="resume_right">
                       <div class="resume_item resume_about">
                           <div class="title">
                              <p class="bold">About</p>
                            </div>
-                          <p>Hello, This is Chand</p>
+                          {% for i in about %}
+                          <p>{{ i.backgound_description }}</p>
+                              {% endfor %}
                       </div>
+{% endfor %}
                       <div class="resume_item resume_work">
+
                           <div class="title">
                              <p class="bold">Work Experience</p>
                            </div>
+
                           <ul>
+                              {% for j in work %}
                               <li>
-                                  <div class="date">2013 - 2015</div>
+
+                                  <div class="date">{{j.start_date}}-{{ j.end_date }}{{ j.still_working }}</div>
                                   <div class="info">
-                                       <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                                       <p class="semi-bold">{{j.job_title}}</p>
+                                    <p class="pera">{{j.work_description}}</p>
                                   </div>
                               </li>
-                               <li>
-                                  <div class="date">2013 - 2015</div>
-                                  <div class="info">
-                                       <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                                  </div>
-                              </li>
-                              <li>
-                                <div class="date">2015 - 2017</div>
-                                <div class="info">
-                                       <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                                  </div>
-                              </li>
-                              <li>
-                                <div class="date">2017 - Present</div>
-                                <div class="info">
-                                       <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                                  </div>
-                              </li>
-                          </ul>
+
+                          {% endfor %}
                       </div>
                       <div class="resume_item resume_education">
                         <div class="title">
                              <p class="bold">Education</p>
                            </div>
                         <ul>
+                            {% for k in education %}
                               <li>
-                                  <div class="date">2010 - 2013</div>
+                                  <div class="date">{{ k.graduation_start_date }} - {{ k.graduation_end_date }}{{ k.still_studing }}</div>
                                   <div class="info">
-                                       <p class="semi-bold">Web Designing</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                                       <p class="semi-bold">{{ k.institute_name }}-{{ k.institute_location }}</p>
+                                      <p class="semi-bold">{{ k.degree }}</p>
+                                      <p class="semi-bold">{{ k.field_of_study}}</p>
+                                    <p class="pera">{{k.description}}</p>
                                   </div>
                               </li>
-                              <li>
-                                <div class="date">2000 - 2010</div>
-                                <div class="info">
-                                       <p class="semi-bold">X School</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                                  </div>
-                              </li>
+                            {% endfor %}
                           </ul>
                       </div>
                       <div class="resume_item resume_hobby">
