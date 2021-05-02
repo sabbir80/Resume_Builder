@@ -1,9 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password,check_password
+from django.views import generic
+
 from resume.middlewares.auth import auth_middleware
 
 # Create your views here.
-from resume.models import User,Personal_info,Work_history,Education,Skill,Summary
+from resume.models import User,Personal_info,Work_history,Education,Skill,Summary,Post,Applicant
+
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
 
 
 def home(request):
@@ -158,7 +164,7 @@ def resume1(request):
     pid=request.session.get('person_pk')
 
     person=Personal_info.objects.filter(id=pid)
-    #print('ki',person)
+
     work=Work_history.objects.filter(personal_info_id=pid)
     education=Education.objects.filter(personal_info_id=pid)
     skill=Skill.objects.filter(personal_info_id=pid)
@@ -179,3 +185,60 @@ def final(request):
         'person':person
     }
     return render(request,'finalization.html',context)
+def render_pdf_view(request):
+    pid=request.session.get('person_pk')
+
+    person=Personal_info.objects.filter(id=pid)
+
+    work=Work_history.objects.filter(personal_info_id=pid)
+    education=Education.objects.filter(personal_info_id=pid)
+    skill=Skill.objects.filter(personal_info_id=pid)
+    about = Summary.objects.filter(personal_info_id=pid)
+    context={
+        'data': person,
+        'work':work,
+        'education':education,
+        'skill':skill,
+        'about':about
+    }
+    template_path = 'Resume/resume1pdf.html'
+    #context = {'myvar': 'this is your template context'}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'filename="resume.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response)
+    # if error then show some funy view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
+
+def job_apply(request):
+    if request.method=='POST':
+        postdata=request.POST
+        file=request.FILES
+        fname=postdata.get('fname')
+        lname=postdata.get('lname')
+        profession=postdata.get('proff')
+        address=postdata.get('address')
+        phone=postdata.get('phone')
+        email=postdata.get('email')
+        file=file.get('image')
+        applicant=Applicant(first_name=fname,last_name=lname,profession=profession,address=address,phone=phone,email=email,file=file)
+        applicant.save()
+        return redirect('job_apply')
+
+
+    return render(request,'job_apply.html')
+class PostList(generic.ListView):
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    template_name = 'job_post.html'
+
+class PostDetail(generic.DetailView):
+    model = Post
+    template_name = 'job_post_details.html'

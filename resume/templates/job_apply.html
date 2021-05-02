@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+<form action="/" method="POST" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+                      <div class="row">
+                            <div class="col-12 col-md-6 mt-4">
+                                 <span class="details">First Name</span>
+                                 <input class="form-control form-control-edit" id="f_name" type="text"  name="fname" >
+                            </div>
+                             <div class="col-12 col-md-6 mt-4">
+                                 <span class="details">Last Name</span>
+                                 <input class="form-control form-control-edit" type="text"  id="l_name"  name="lname" >
+                            </div>
+
+                            <div class="col-12 col-md-12 mt-4">
+                                 <span class="details">Profession</span>
+                                 <input class="form-control form-control-edit" type="text" id="profession1"    name="proff" >
+                            </div>
+
+                            <div class="col-12 col-md-6 mt-4">
+                                 <span class="details">Address</span>
+                                 <input class="form-control form-control-edit" type="text" id="addressInput" name="address">
+                            </div>
+
+                             <div class="col-12 col-md-6 mt-4">
+                                 <span class="details">Phone Number</span>
+                                 <input class="form-control form-control-edit" type="text" id="phoneInput" name="phone">
+                            </div>
+                             <div class="col-12 col-md-6 mt-4">
+                                 <span class="details">Email</span>
+                                 <input class="form-control form-control-edit" type="email" id="emailInput"   name="email" >
+                            </div>
+                          <div class="col-12 col-md-6 mt-4">
+                                 <span class="details">Resume</span>
+                                 <input class="form-control form-control-edit " type="file"  name="file" >
+                            </div>
+
+                            <div class="col-12 col-md-12 mt-4 mr-auto">
+                                   <div class="col-4">
+                                      <input class="form-control btn btn-outline-primary" type="submit" value="Submit">
+                                    </div>
+                            </div>
+                        </div>
+
+                   </form>
+</div>
+
+{% endblock content %}

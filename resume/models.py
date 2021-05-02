@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class User(models.Model):
     first_name=models.CharField(max_length=20,default=None,null=True)
@@ -7,6 +8,8 @@ class User(models.Model):
     company_name= models.CharField(max_length=20,default=None,null=True)
     phone= models.CharField(max_length=20,default=None,null=True)
     password= models.CharField(max_length=20)
+    def __str__(self):
+        return self.first_name
 
     @staticmethod
     def get_id_by_mail(email):
@@ -59,3 +62,34 @@ class Summary(models.Model):
     personal_info_id = models.ForeignKey(Personal_info, on_delete=models.CASCADE, default=None, null=True)
     backgound_description=models.TextField(max_length=255, default=None, null=True)
 
+STATUS = (
+    (0,"Draft"),
+    (1,"Publish")
+)
+
+class Post(models.Model):
+    job_title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts')
+    updated_on = models.DateTimeField(auto_now= True)
+    job_details = RichTextField(blank=True,null=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+
+    class Meta:
+        ordering = ['-created_on']
+
+    def __str__(self):
+        return self.job_title
+
+class Applicant(models.Model):
+    first_name = models.CharField(max_length=20, default=None, null=True)
+    last_name = models.CharField(max_length=20, default=None, null=True)
+    profession=models.CharField(max_length=20,default=None,null=True)
+    address=models.CharField(max_length=20,default=None,null=True)
+    phone=models.CharField(max_length=20,default=None,null=True)
+    email=models.EmailField(max_length=20,default=None,null=True)
+    resume=models.FileField(upload_to="upload/file/",default=None,null=True)
+
+    def __str__(self):
+        return self.email

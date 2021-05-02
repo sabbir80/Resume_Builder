@@ -111,6 +111,7 @@ function hide()
                     {%if request.session.user_id%}
 
                     <a class="dropdown-item" href="{% url 'logout' %}">logout</a>
+                    <a class="dropdown-item" href="{% url 'job_post' %}">Career</a>
 
                     {% else %}
 
