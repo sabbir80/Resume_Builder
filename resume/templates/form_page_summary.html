@@ -1,334 +1,335 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Form  </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Form </title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/formpage.css' %}">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
 
-   </head>
+</head>
 <body>
- <section class="header">
-          <nav class="navbar navbar-expand-lg navbar-white  bg-white  shadow">
-               <div class="navbar-collapse justify-content-center" id="navbarSupportedContent">
-                 <ul class="navbar-nav justify-content-center mr-auto p-3" style="flex-direction: inherit;">
-                   <li class="nav-item"><i class="fas fa-check-square"></i> Personal Information</li>
-                   <li class="nav-item before-dash-item ml-2"><i class="fas fa-check-square"></i> Work History</li>
-                   <li class="nav-item before-dash-item ml-2"><i class="fas fa-check-square"></i> Education</li>
-                   <li class="nav-item before-dash-item ml-2"><i class="fas fa-check-square"></i> Skills</li>
-                   <li class="nav-item before-dash-item ml-2"><i class="fas fa-check-square"></i> Summary</li>
-                 </ul>
-               </div>
-            </nav>
-      </section>
+<section class="header">
+    <nav class="navbar navbar-expand-lg navbar-white  bg-white  shadow">
+        <div class="navbar-collapse justify-content-center" id="navbarSupportedContent">
+            <ul class="navbar-nav justify-content-center mr-auto p-3" style="flex-direction: inherit;">
+                <li class="nav-item"><i class="fas fa-check-square"></i> Personal Information</li>
+                <li class="nav-item before-dash-item ml-2"><i class="fas fa-check-square"></i> Work History</li>
+                <li class="nav-item before-dash-item ml-2"><i class="fas fa-check-square"></i> Education</li>
+                <li class="nav-item before-dash-item ml-2"><i class="fas fa-check-square"></i> Skills</li>
+                <li class="nav-item before-dash-item ml-2"><i class="fas fa-check-square"></i> Summary</li>
+            </ul>
+        </div>
+    </nav>
+</section>
 
 
-      <div class="container mt-5 ">
-        <div class="row justify-content-center"><!--row-->
-          <div class="col-10 col-sm-10 col-md-7 mt-5">
-               <h2 class="body-header-line">What’s the best way for employers to contact you?</h2>
-               <p>We suggest including an email and phone number.</p>
-              <div class="content">
+<div class="container mt-5 ">
+    <div class="row justify-content-center"><!--row-->
+        <div class="col-10 col-sm-10 col-md-7 mt-5">
+            <h2 class="body-header-line">What’s the best way for employers to contact you?</h2>
+            <p>We suggest including an email and phone number.</p>
+            <div class="content">
                 <form action="" method="POST">
                     {% csrf_token %}
 
-                      <div class="row">
-                            <div class="col-12 col-md-6 mt-4">
-                                 <span class="details">About</span>
-                                <textarea class="form-control form-control-edit" type="text"  name="about"></textarea>
-                            </div>
-
-
-                            <div class="col-12 col-md-12 mt-4 mr-auto">
-                                   <div class="col-4">
-                                      <input class="form-control btn btn-outline-primary " type="submit" value="Submit">
-                                    </div>
-                            </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6 mt-4">
+                            <span class="details">About</span>
+                            <textarea class="form-control form-control-edit" type="text" name="about" id="iabout"
+                                      oninput="about()"></textarea>
                         </div>
 
-                   </form>
-                </div>
-          </div>
-          <div class="col-10 col-sm-8 col-md-5 popup-cv" style="display: flex;
+
+                        <div class="col-12 col-md-12 mt-4 mr-auto">
+                            <div class="col-4">
+                                <input class="form-control btn btn-outline-primary " type="submit" value="Submit">
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="col-10 col-sm-8 col-md-5 popup-cv" style="display: flex;
     justify-content: center;" id="overflow">
-                    <div class="background-effect mt-5" id="background-effect" >
-                      <div class="remove-modal-btn">
-                        <h2 onclick="hide()" class="cross-icon mr-auto" ><i class="far fa-times-circle"></i></h2>
-                      </div>
-                      <div class="resume-parent hover-effect"><div class="zoom" id="b"><i class="fas fa-search-plus"></i></div>
-                  <div class="resume " id="resume" onclick="show()">
+            <div class="background-effect mt-5" id="background-effect">
+                <div class="remove-modal-btn">
+                    <h2 onclick="hide()" class="cross-icon mr-auto"><i class="far fa-times-circle"></i></h2>
+                </div>
+                <div class="resume-parent hover-effect">
+                    <div class="zoom" id="b"><i class="fas fa-search-plus"></i></div>
+                    <div class="resume " id="resume" onclick="show()">
 
-                    
-                <div class="resume_left">
-                         <div class="resume_profile">
-                            <img src="{% static 'image/cv1.jpg'%}" alt="profile_pic">
-                         </div>
-                       <div class="resume_content">
-                         <div class="resume_item resume_info">
-                               <div class="title">
-                                 <p class="bold">Masturain Chand</p>
-                                 <p class="regular">Software Engineer (Intern)</p>
-                               </div>
-                                   <ul>
-                                     <li>
-                                       <div class="icon">
-                                         <i class="fas fa-map-signs"></i>
-                                       </div>
-                                       <div class="data">
-                                        Sector 10,Uttara. <br /> Bangladesh
-                                       </div>
-                                     </li>
-                                     <li>
-                                       <div class="icon">
-                                         <i class="fas fa-mobile-alt"></i>
-                                       </div>
-                                       <div class="data">
-                                         01794210727
-                                       </div>
-                                     </li>
-                                     <li>
-                                       <div class="icon">
-                                         <i class="fas fa-envelope"></i>
-                                       </div>
-                                       <div class="data">
-                                         17103389@iubat.edu
-                                       </div>
-                                     </li>
-                                     <li>
-                                       <div class="icon">
-                                         <i class="fab fa-weebly"></i>
-                                       </div>
-                                       <div class="data">
-                                         www.masturainchand.com
-                                       </div>
-                                     </li>
-                                   </ul>
-                         </div>
-                         <div class="resume_item resume_skills">
-                           <div class="title">
-                             <p class="bold">skill's</p>
-                           </div>
-                           <ul>
-                             <li>
-                               <div class="skill_name">
-                                 HTML
-                               </div>
-                               <div class="skill_progress">
-                                 <span style="width: 80%;"></span>
-                               </div>
-                               <div class="skill_per">80%</div>
-                             </li>
-                             <li>
-                               <div class="skill_name">
-                                 CSS
-                               </div>
-                               <div class="skill_progress">
-                                 <span style="width: 70%;"></span>
-                               </div>
-                               <div class="skill_per">70%</div>
-                             </li>
-                             <li>
-                               <div class="skill_name">
-                                 JAVASCRIPTS
-                               </div>
-                               <div class="skill_progress">
-                                 <span style="width: 90%;"></span>
-                               </div>
-                               <div class="skill_per">90%</div>
-                             </li>
-                             <li>
-                               <div class="skill_name">
-                                 PYTHON
-                               </div>
-                               <div class="skill_progress">
-                                 <span style="width: 60%;"></span>
-                               </div>
-                               <div class="skill_per">60%</div>
-                             </li>
-                             <li>
-                               <div class="skill_name">
-                                 DJANGO
-                               </div>
-                               <div class="skill_progress">
-                                 <span style="width: 88%;"></span>
-                               </div>
-                               <div class="skill_per">88%</div>
-                             </li>
-                           </ul>
-                         </div>
-                         <div class="resume_item resume_social">
-                           <div class="title">
-                             <p class="bold">Social</p>
-                           </div>
-                           <ul>
-                             <li>
-                               <div class="icon">
-                                 <i class="fab fa-facebook-square"></i>
-                               </div>
-                               <div class="data">
-                                 <p class="semi-bold">Facebook</p>
-                                 <p>https://www.facebook.com/chand.masturain/</p>
-                               </div>
-                             </li>
-                             <li>
-                               <div class="icon">
-                                 <i class="fab fa-twitter-square"></i>
-                               </div>
-                               <div class="data">
-                                 <p class="semi-bold">Twitter</p>
-                                 <p>https://twitter.com/masturain</p>
-                               </div>
-                             </li>
-                             <li>
-                               <div class="icon">
-                                 <i class="fab fa-linkedin"></i>
-                               </div>
-                               <div class="data">
-                                 <p class="semi-bold">Linkedin</p>
-                                 <p>https://www.linkedin.com/in/masturain-chand-0685681a2/</p>
-                               </div>
-                             </li>
-                             <li>
-                               <div class="icon">
-                                 <i class="fab fa-github"></i>
-                               </div>
-                               <div class="data">
-                                 <p class="semi-bold">GitHub</p>
-                                 <p>https://github.com/Masturain-Chand</p>
-                               </div>
-                             </li>
-                           </ul>
-                         </div>
-                       </div>
+
+                        <div class="resume_left">
+                            <div class="resume_profile">
+                                <img src="{% static 'image/cv1.jpg' %}" alt="profile_pic">
+                            </div>
+                            <div class="resume_content">
+                                <div class="resume_item resume_info">
+                                    <div class="title">
+                                        <p class="bold">Masturain Chand</p>
+                                        <p class="regular">Software Engineer (Intern)</p>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <div class="icon">
+                                                <i class="fas fa-map-signs"></i>
+                                            </div>
+                                            <div class="data">
+                                                Sector 10,Uttara. <br/> Bangladesh
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <i class="fas fa-mobile-alt"></i>
+                                            </div>
+                                            <div class="data">
+                                                01794210727
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <i class="fas fa-envelope"></i>
+                                            </div>
+                                            <div class="data">
+                                                17103389@iubat.edu
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <i class="fab fa-weebly"></i>
+                                            </div>
+                                            <div class="data">
+                                                www.masturainchand.com
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="resume_item resume_skills">
+                                    <div class="title">
+                                        <p class="bold">skill's</p>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <div class="skill_name">
+                                                HTML
+                                            </div>
+                                            <div class="skill_progress">
+                                                <span style="width: 80%;"></span>
+                                            </div>
+                                            <div class="skill_per">80%</div>
+                                        </li>
+                                        <li>
+                                            <div class="skill_name">
+                                                CSS
+                                            </div>
+                                            <div class="skill_progress">
+                                                <span style="width: 70%;"></span>
+                                            </div>
+                                            <div class="skill_per">70%</div>
+                                        </li>
+                                        <li>
+                                            <div class="skill_name">
+                                                JAVASCRIPTS
+                                            </div>
+                                            <div class="skill_progress">
+                                                <span style="width: 90%;"></span>
+                                            </div>
+                                            <div class="skill_per">90%</div>
+                                        </li>
+                                        <li>
+                                            <div class="skill_name">
+                                                PYTHON
+                                            </div>
+                                            <div class="skill_progress">
+                                                <span style="width: 60%;"></span>
+                                            </div>
+                                            <div class="skill_per">60%</div>
+                                        </li>
+                                        <li>
+                                            <div class="skill_name">
+                                                DJANGO
+                                            </div>
+                                            <div class="skill_progress">
+                                                <span style="width: 88%;"></span>
+                                            </div>
+                                            <div class="skill_per">88%</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="resume_item resume_social">
+                                    <div class="title">
+                                        <p class="bold">Social</p>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <div class="icon">
+                                                <i class="fab fa-facebook-square"></i>
+                                            </div>
+                                            <div class="data">
+                                                <p class="semi-bold">Facebook</p>
+                                                <p>https://www.facebook.com/chand.masturain/</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <i class="fab fa-twitter-square"></i>
+                                            </div>
+                                            <div class="data">
+                                                <p class="semi-bold">Twitter</p>
+                                                <p>https://twitter.com/masturain</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <i class="fab fa-linkedin"></i>
+                                            </div>
+                                            <div class="data">
+                                                <p class="semi-bold">Linkedin</p>
+                                                <p>https://www.linkedin.com/in/masturain-chand-0685681a2/</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="icon">
+                                                <i class="fab fa-github"></i>
+                                            </div>
+                                            <div class="data">
+                                                <p class="semi-bold">GitHub</p>
+                                                <p>https://github.com/Masturain-Chand</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="resume_right">
+                            <div class="resume_item resume_about">
+                                <div class="title">
+                                    <p class="bold">About</p>
+                                </div>
+                                <p id="about">Hello, This is Chand</p>
+                            </div>
+                            <div class="resume_item resume_work">
+                                <div class="title">
+                                    <p class="bold">Work Experience</p>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="date">2013 - 2015</div>
+                                        <div class="info">
+                                            <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
+                                            <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Nostrum, voluptatibus!</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="date">2013 - 2015</div>
+                                        <div class="info">
+                                            <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
+                                            <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Nostrum, voluptatibus!</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="date">2015 - 2017</div>
+                                        <div class="info">
+                                            <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
+                                            <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Nostrum, voluptatibus!</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="date">2017 - Present</div>
+                                        <div class="info">
+                                            <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
+                                            <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Nostrum, voluptatibus!</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="resume_item resume_education">
+                                <div class="title">
+                                    <p class="bold">Education</p>
+                                </div>
+                                <ul>
+                                    <li>
+                                        <div class="date">2010 - 2013</div>
+                                        <div class="info">
+                                            <p class="semi-bold">Web Designing</p>
+                                            <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Nostrum, voluptatibus!</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="date">2000 - 2010</div>
+                                        <div class="info">
+                                            <p class="semi-bold">X School</p>
+                                            <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Nostrum, voluptatibus!</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="resume_item resume_hobby">
+                                <div class="title">
+                                    <p class="bold">Hobby</p>
+                                </div>
+
+                            </div>
+                        </div><!--resume-->
                     </div>
-                    <div class="resume_right">
-                      <div class="resume_item resume_about">
-                          <div class="title">
-                             <p class="bold">About</p>
-                           </div>
-                          <p>Hello, This is Chand</p>
-                      </div>
-                      <div class="resume_item resume_work">
-                          <div class="title">
-                             <p class="bold">Work Experience</p>
-                           </div>
-                          <ul>
-                              <li>
-                                  <div class="date">2013 - 2015</div>
-                                  <div class="info">
-                                       <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                                  </div>
-                              </li>
-                               <li>
-                                  <div class="date">2013 - 2015</div>
-                                  <div class="info">
-                                       <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                                  </div>
-                              </li>
-                              <li>
-                                <div class="date">2015 - 2017</div>
-                                <div class="info">
-                                       <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                                  </div>
-                              </li>
-                              <li>
-                                <div class="date">2017 - Present</div>
-                                <div class="info">
-                                       <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                                  </div>
-                              </li>
-                          </ul>
-                      </div>
-                      <div class="resume_item resume_education">
-                        <div class="title">
-                             <p class="bold">Education</p>
-                           </div>
-                        <ul>
-                              <li>
-                                  <div class="date">2010 - 2013</div>
-                                  <div class="info">
-                                       <p class="semi-bold">Web Designing</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                                  </div>
-                              </li>
-                              <li>
-                                <div class="date">2000 - 2010</div>
-                                <div class="info">
-                                       <p class="semi-bold">X School</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
-                                  </div>
-                              </li>
-                          </ul>
-                      </div>
-                      <div class="resume_item resume_hobby">
-                        <div class="title">
-                             <p class="bold">Hobby</p>
-                           </div>
-
-                      </div>
-                    </div><!--resume-->
-                    </div>
-                    </div>
+                </div>
 
 
-          </div>
+            </div>
         </div><!--row-->
-      </div>
+    </div>
 
 
-  <div class="container clearfix">
+    <div class="container clearfix">
 
 
-  </div>
+    </div>
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
-  /*function mouseOver(){
-    document.getElementById("b").style.display = "block";
-  }
-
-  function mouseOut(){
-    document.getElementById("b").style.display = "none";
-  }*/
-
- // function show(){
- //    document.getElementById("background-effect").setAttribute("class","actions_one");
- // }
- //  function hide(){
- //    //console.log(document.getElementById("background-effect"));
- //    document.getElementById("background-effect").removeAttribute("class");
- //  }
+        function about() {
+            var x = document.getElementById("iabout").value;
+            document.getElementById("about").innerHTML = x;
+        }
 
 
+    </script>
 
-</script>
+    <!-- Script start -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- Script start -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+            integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+            integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $('.resume-parent.hover-effect').on('click', function () {
+            $('#background-effect').removeClass('background-effect mt-5');
+            $('#background-effect').addClass('actions_one');
+        });
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
-<script type="text/javascript">
-  $('.resume-parent.hover-effect').on('click', function(){
-    $('#background-effect').removeClass('background-effect mt-5');
-    $('#background-effect').addClass('actions_one');
-  });
-
-  $('.remove-modal-btn').click(function(){
-    $('#background-effect').removeClass('actions_one');
-    $('#background-effect').addClass('background-effect mt-5');
-  })
-</script>
-<!-- Script end -->
+        $('.remove-modal-btn').click(function () {
+            $('#background-effect').removeClass('actions_one');
+            $('#background-effect').addClass('background-effect mt-5');
+        })
+    </script>
+    <!-- Script end -->
 </body>
 </html>
 

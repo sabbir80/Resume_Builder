@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password,check_password
 from django.views import generic
+from django.core.mail import send_mail
 
 from resume.middlewares.auth import auth_middleware
 
@@ -220,18 +221,25 @@ def render_pdf_view(request):
 
 def job_apply(request):
     if request.method=='POST':
-        postdata=request.POST
-        file=request.FILES
-        fname=postdata.get('fname')
-        lname=postdata.get('lname')
-        profession=postdata.get('proff')
-        address=postdata.get('address')
-        phone=postdata.get('phone')
-        email=postdata.get('email')
-        file=file.get('image')
-        applicant=Applicant(first_name=fname,last_name=lname,profession=profession,address=address,phone=phone,email=email,file=file)
-        applicant.save()
-        return redirect('job_apply')
+        try:
+            postdata=request.POST
+            file=request.FILES
+            fname=postdata.get('fname')
+            lname=postdata.get('lname')
+            profession=postdata.get('proff')
+            address=postdata.get('address')
+            phone=postdata.get('phone')
+            email=postdata.get('email')
+            file=file.get('file')
+            applicant=Applicant(first_name=fname,last_name=lname,profession=profession,address=address,phone=phone,email=email,resume=file)
+            applicant.save()
+            mgs='Thankyou for applying.We got your CV,let us go through your CV and waiting for our mail '
+            send_mail('Divine IT Limited',mgs , 'sabbirahmed4003@gmail.com', [email],
+                      fail_silently=False)
+            return redirect('job_post')
+        except:
+            print('not not not')
+            return render(request,'job_apply.html')
 
 
     return render(request,'job_apply.html')

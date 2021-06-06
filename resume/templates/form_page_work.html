@@ -40,7 +40,7 @@
                       <div class="row">
                             <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Job title</span>
-                                 <input class="form-control form-control-edit" type="text"  name="title">
+                                 <input class="form-control form-control-edit" type="text"  name="title" id="ititle" oninput="jtitle()">
                             </div>
                              <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Employeer</span>
@@ -49,17 +49,17 @@
 
                             <div class="col-12 col-md-12 mt-4">
                                  <span class="details">Work Description</span>
-                                 <textarea class="form-control form-control-edit" name="wd"></textarea>
+                                 <textarea class="form-control form-control-edit" name="wd" id="ides" oninput="jdes()"></textarea>
                             </div>
 
                             <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Start Date</span>
-                                 <input class="form-control form-control-edit" type="date" name="sd">
+                                 <input class="form-control form-control-edit" type="date" name="sd" id="isdate" oninput="sdate()">
                             </div>
 
                              <div class="col-12 col-md-6 mt-4">
                                  <span class="details">End Date</span>
-                                 <input class="form-control form-control-edit" type="date"  name="ed">
+                                 <input class="form-control form-control-edit" type="date"  name="ed" id="iedate" oninput="edate()">
                             </div>
                           <div class="col-12 col-md-6 mt-4">
                                  <input type="checkbox"  name="ne">
@@ -250,10 +250,10 @@
                            </div>
                           <ul>
                               <li>
-                                  <div class="date">2013 - 2015</div>
+                                  <div class="date"><span id="sdate">2013</span> - <span id="edate">2015</span></div>
                                   <div class="info">
-                                       <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                                       <p class="semi-bold" id="jtitle">Lorem ipsum dolor sit amet.</p>
+                                    <p class="pera" id="jdes">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
                                   </div>
                               </li>
                                <li>
@@ -339,6 +339,22 @@
  //    document.getElementById("background-effect").removeAttribute("class");
  //  }
 
+ function sdate() {
+                    var x = document.getElementById("isdate").value;
+                    document.getElementById("sdate").innerHTML = x;
+                    }
+  function edate() {
+                    var x = document.getElementById("iedate").value;
+                    document.getElementById("edate").innerHTML = x;
+                    }
+   function jtitle() {
+                    var x = document.getElementById("ititle").value;
+                    document.getElementById("jtitle").innerHTML = x;
+                    }
+   function jdes() {
+                    var x = document.getElementById("ides").value;
+                    document.getElementById("jdes").innerHTML = x;
+                    }
 
 
 </script>

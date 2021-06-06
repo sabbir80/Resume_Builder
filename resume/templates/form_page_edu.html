@@ -40,34 +40,34 @@
                       <div class="row">
                             <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Institute Name</span>
-                                 <input class="form-control form-control-edit" type="text"  name="Iname">
+                                 <input class="form-control form-control-edit" type="text"  name="Iname" id="iiname" oninput="iname()">
                             </div>
                              <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Institute Location</span>
-                                 <input class="form-control form-control-edit" type="text"  name="ILname">
+                                 <input class="form-control form-control-edit" type="text"  name="ILname" id="iilname" oninput="ilocation()">
                             </div>
 
                             <div class="col-12 col-md-12 mt-4">
                                  <span class="details">Dgree</span>
-                                 <input class="form-control form-control-edit" type="text"   name="dgree">
+                                 <input class="form-control form-control-edit" type="text"   name="dgree" id="iidgree" oninput="degree()">
                             </div>
 
                             <div class="col-12 col-md-12  mt-4">
                                  <span class="details">Field of Study</span>
-                                 <input class="form-control form-control-edit" type="text" name="FOS">
+                                 <input class="form-control form-control-edit" type="text" name="FOS" id="iifos" oninput="fos()">
                             </div>
                             <div class="col-12 col-md-12  mt-4">
                                  <span class="details">Description</span>
-                                 <input class="form-control form-control-edit" type="text" name="des">
+                                 <input class="form-control form-control-edit" type="text" name="des" id="iides" oninput="description()">
                             </div>
 
                              <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Graduation Start Date</span>
-                                 <input class="form-control form-control-edit" type="date"  name="SD" required>
+                                 <input class="form-control form-control-edit" type="date"  name="SD" id="gsd" oninput="sdate()" required>
                             </div>
                              <div class="col-12 col-md-6 mt-4">
                                  <span class="details">Graduation end Date *</span>
-                                 <input class="form-control form-control-edit" type="date"   name="ED">
+                                 <input class="form-control form-control-edit" type="date"   name="ED" id="ged" oninput="edate()">
                             </div>
                           <div class="col-12 col-md-6 mt-4">
                                  <input type="checkbox"  name="CA">
@@ -254,10 +254,10 @@
                            </div>
                           <ul>
                               <li>
-                                  <div class="date">2013 - 2015</div>
+                                  <div class="date" id="wdate">2013 - 2015</div>
                                   <div class="info">
-                                       <p class="semi-bold">Lorem ipsum dolor sit amet.</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                                       <p class="semi-bold" id="wtitle">Lorem ipsum dolor sit amet.</p>
+                                    <p class="pera" id="wdes">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
                                   </div>
                               </li>
                                <li>
@@ -289,10 +289,13 @@
                            </div>
                         <ul>
                               <li>
-                                  <div class="date">2010 - 2013</div>
+                                  <div class="date"><span id="sd">2010</span> - <span id="ed">2013</span></div>
                                   <div class="info">
-                                       <p class="semi-bold">Web Designing</p>
-                                    <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
+                                       <p class="semi-bold" id="iname">Web Designing</p>
+                                      <p class="semi-bold" id="ilname"></p>
+                                      <p class="semi-bold" id="ifos"></p>
+                                      <p class="semi-bold" id="idgree"></p>
+                                    <p class="pera" id="ides">Lorem ipsum dolorx sit amet consectetur adipisicing elit. Nostrum, voluptatibus!</p>
                                   </div>
                               </li>
                               <li>
@@ -342,7 +345,34 @@
  //    //console.log(document.getElementById("background-effect"));
  //    document.getElementById("background-effect").removeAttribute("class");
  //  }
-
+function iname() {
+                    var x = document.getElementById("iiname").value;
+                    document.getElementById("iname").innerHTML = x;
+                    }
+  function ilocation() {
+                    var x = document.getElementById("iilname").value;
+                    document.getElementById("ilname").innerHTML = x;
+                    }
+   function degree() {
+                    var x = document.getElementById("iidgree").value;
+                    document.getElementById("idgree").innerHTML = x;
+                    }
+   function description() {
+                    var x = document.getElementById("iides").value;
+                    document.getElementById("ides").innerHTML = x;
+                    }
+  function sdate() {
+                    var x = document.getElementById("gsd").value;
+                    document.getElementById("sd").innerHTML = x;
+                    }
+  function edate() {
+                    var x = document.getElementById("ged").value;
+                    document.getElementById("ed").innerHTML = x;
+                    }
+  function fos() {
+                    var x = document.getElementById("iifos").value;
+                    document.getElementById("ifos").innerHTML = x;
+                    }
 
 
 </script>
