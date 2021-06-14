@@ -10,11 +10,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
+
+
 </head>
 <body>
+<input type="button"  onclick="printDiv()" value="Generate PDF">
 
+
+
+
+<div id="cv">
          <div class="col-10 col-sm-8 col-md-5 popup-cv" style="display: flex;
-    justify-content: center;" id="overflow">
+    justify-content: center;" id="overflow" >
                     <div class="background-effect mt-5" id="background-effect" >
                       <div class="remove-modal-btn">
                         <h2 onclick="hide()" class="cross-icon mr-auto" ><i class="far fa-times-circle"></i></h2>
@@ -93,47 +100,8 @@
                            </ul>
                          </div>
                          <div class="resume_item resume_social">
-                           <div class="title">
-                             <p class="bold">Social</p>
-                           </div>
-                           <ul>
-                             <li>
-                               <div class="icon">
-                                 <i class="fab fa-facebook-square"></i>
-                               </div>
-                               <div class="data">
-                                 <p class="semi-bold">Facebook</p>
-                                 <p>https://www.facebook.com/chand.masturain/</p>
-                               </div>
-                             </li>
-                             <li>
-                               <div class="icon">
-                                 <i class="fab fa-twitter-square"></i>
-                               </div>
-                               <div class="data">
-                                 <p class="semi-bold">Twitter</p>
-                                 <p>https://twitter.com/masturain</p>
-                               </div>
-                             </li>
-                             <li>
-                               <div class="icon">
-                                 <i class="fab fa-linkedin"></i>
-                               </div>
-                               <div class="data">
-                                 <p class="semi-bold">Linkedin</p>
-                                 <p>https://www.linkedin.com/in/masturain-chand-0685681a2/</p>
-                               </div>
-                             </li>
-                             <li>
-                               <div class="icon">
-                                 <i class="fab fa-github"></i>
-                               </div>
-                               <div class="data">
-                                 <p class="semi-bold">GitHub</p>
-                                 <p>https://github.com/Masturain-Chand</p>
-                               </div>
-                             </li>
-                           </ul>
+
+
                          </div>
                        </div>
                     </div>
@@ -186,13 +154,7 @@
                             {% endfor %}
                           </ul>
                       </div>
-                      <div class="resume_item resume_hobby">
-                        <div class="title">
-                             <p class="bold">Hobby</p>
 
-
-
-                           </div>
 
                       </div>
                     </div><!--resume-->
@@ -201,13 +163,29 @@
 
 
           </div>
-        </div><!--row-->
+
 
 
 
   <div class="container clearfix">
+      </div>
 
+
+
+<script>
+    function printDiv()
+    {
+    var divContents = document.getElementById("background-effect").innerHTML;
+    var orginalContents = document.body.innerHtml;
+    document.body.innerHTML = divContents;
+    window.print();
+
+    }
+
+</script>
 
   </div>
 </body>
 </html>
+
+

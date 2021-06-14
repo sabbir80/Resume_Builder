@@ -157,7 +157,7 @@ def from_summary(request):
         about=postdata.get('about')
         s=Summary(personal_info_id=Personal_info.get_id_by_id(id),backgound_description=about)
         s.save()
-        return redirect('final')
+        return redirect('resume1')
 
     return render(request,'form_page_summary.html')
 @auth_middleware
@@ -233,8 +233,8 @@ def job_apply(request):
             file=file.get('file')
             applicant=Applicant(first_name=fname,last_name=lname,profession=profession,address=address,phone=phone,email=email,resume=file)
             applicant.save()
-            mgs='Thankyou for applying.We got your CV,let us go through your CV and waiting for our mail '
-            send_mail('Divine IT Limited',mgs , 'sabbirahmed4003@gmail.com', [email],
+            mgs='Thank you for applying.We got your Resume,let us go through your Resume and wait for our mail.'
+            send_mail('Divine IT Limited',mgs , '17103389@iubat.edu', [email],
                       fail_silently=False)
             return redirect('job_post')
         except:
